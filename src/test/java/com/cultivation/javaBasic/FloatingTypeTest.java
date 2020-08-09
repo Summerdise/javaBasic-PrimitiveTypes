@@ -1,12 +1,8 @@
 package com.cultivation.javaBasic;
 
 import org.junit.jupiter.api.Test;
-import sun.awt.*;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class FloatingTypeTest {
     @Test
@@ -55,7 +51,7 @@ class FloatingTypeTest {
 
         // TODO: Please call some method to round the floating point number.
         // <!--start
-        final long rounded = (long) 2.75;
+        final long rounded = Math.round(floatingPointNumber);
         // --end-->
 
         assertEquals(3L, rounded);
@@ -64,22 +60,12 @@ class FloatingTypeTest {
     @SuppressWarnings("unused")
     private boolean isNan(double realNumber) {
         // TODO: please find the method that performs this operation.
-        if(realNumber == Double.NaN){
-            return true;
-        }else {
-            return false;
-        }
+        return Double.isNaN(realNumber);
     }
 
     @SuppressWarnings("unused")
     private boolean isInfinity(double realNumber) {
         // TODO: please find the method that perform this operation.
-        if(realNumber == Double.NEGATIVE_INFINITY){
-            return true;
-        }else if(realNumber ==Double.POSITIVE_INFINITY){
-            return true;
-        }else{
-            return false;
-        }
+        return Double.isInfinite(realNumber);
     }
 }

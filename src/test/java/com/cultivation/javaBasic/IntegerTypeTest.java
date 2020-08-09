@@ -1,7 +1,7 @@
 package com.cultivation.javaBasic;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -172,11 +172,12 @@ class IntegerTypeTest {
     private int add(int left, int right) {
         // TODO: Please find the method that adding two numbers with overflow checking.
         // The method should throw ArithmeticException if overflow or underflow happens.
-            int result = left + right;
-            // HD 2-12 Overflow iff both arguments have the opposite sign of the result
-            if (((left ^ right) & (left ^ right)) < 0) {
-                throw new ArithmeticException();
-            }
+        int result = left + right;
+        if(left > 0 && right > 0 && result > 0){
             return result;
+        }else if(left < 0 && right < 0 && result < 0){
+            return result;
+        }
+        throw new ArithmeticException();
     }
 }
